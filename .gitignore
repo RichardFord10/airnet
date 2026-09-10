@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+airnet.db
+identity.json
+.DS_Store
