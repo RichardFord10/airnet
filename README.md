@@ -126,10 +126,23 @@ servers run in one process; they are not yet independent network peers.
   backup/import, and feed pagination.
 - With hardware: implement and verify a Meshtastic adapter, measure usable payload
   size and throughput, and exercise reconnects with two real devices.
-- Phone milestone: build a phone-local database and UI plus Bluetooth transport.
-  The current browser UI still requires a running Python node; it is not yet a
-  standalone offline phone app.
+- Phone milestone: native iOS offline foundation is implemented in `mobile/ios/`.
+  Next: simulator bridge, HAVE/WANT reconciliation, Bluetooth transport, and Android.
+  The browser UI still requires Python; the native app stores posts on the phone.
 
 Run the integration suite with `python -m pytest`. It covers multi-hop delivery,
 partitions, live reconnection, restart recovery, cyclic links, malformed packets,
 and the browser API.
+
+
+## native iOS app
+
+Open `mobile/ios/Airnet.xcodeproj` in Xcode and run the Airnet scheme on an iPhone
+simulator or a signed physical device. The SwiftUI app has its own SQLite database,
+Keychain identity, signed posts, and persistent pending-send state; Python is not
+required. This first version saves posts offline but does not yet connect to radios
+or the Python mesh. See [mobile setup and acceptance checks](mobile/README.md).
+
+The iOS app stays in this repository so protocol changes and shared compatibility
+fixtures can be reviewed together. A future native Android app belongs alongside it
+in `mobile/android/`, using the same protocol fixtures with its own Kotlin core.

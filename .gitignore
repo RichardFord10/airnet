@@ -10,3 +10,10 @@ identity.json
 *.egg-info/
 build/
 dist/
+
+# Native development
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
