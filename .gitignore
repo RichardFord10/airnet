@@ -5,3 +5,8 @@ __pycache__/
 airnet.db
 identity.json
 .DS_Store
+
+.airnet-sim/
+*.egg-info/
+build/
+dist/

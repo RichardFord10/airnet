@@ -62,3 +62,16 @@ article p {
 .object-id {
   font-size: 12px;
 }
+
+#network {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 24px 0;
+}
+#network h2 { font-size: 16px; margin-top: 0; }
+.nodes, .links { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
+a { color: #9cd5ff; }
+.links label { cursor: pointer; }
+#packet-count, #status { font-size: 13px; color: #bbb; }
+button:disabled { opacity: .6; cursor: wait; }

@@ -48,7 +48,7 @@ class Database:
             SELECT id, payload, signature
             FROM objects
             WHERE type = 'post'
-            ORDER BY timestamp DESC
+            ORDER BY timestamp DESC, id ASC
             """
         ).fetchall()
 
@@ -60,3 +60,15 @@ class Database:
             }
             for row in rows
         ]
+
+    def get(self, object_id: str) -> dict | None:
+        row = self.conn.execute(
+            "SELECT id, payload, signature FROM objects WHERE id = ?", (object_id,)
+        ).fetchone()
+        if row is None:
+            return None
+        return {"id": row["id"], "payload": json.loads(row["payload"]),
+                "signature": row["signature"]}
+
+    def close(self):
+        self.conn.close()

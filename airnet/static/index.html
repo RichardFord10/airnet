@@ -13,8 +13,10 @@
       <p>offline-first social networking over whatever transport is available.</p>
     </header>
 
+    <section id="network" hidden aria-label="Mesh simulator"></section>
+    <p id="status" role="status" aria-live="polite"></p>
     <section class="composer">
-      <textarea id="post-body" maxlength="280" placeholder="say something..."></textarea>
+      <textarea aria-label="Post text" id="post-body" maxlength="280" placeholder="say something..."></textarea>
       <button id="post-button">post</button>
     </section>
 
@@ -24,6 +26,6 @@
     </section>
   </main>
 
-  <script src="/app.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
